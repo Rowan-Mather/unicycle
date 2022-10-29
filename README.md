@@ -7,6 +7,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-A localised program for all your student housing needs!
+A multi-tool for all your student housing needs!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
