@@ -35,7 +35,7 @@ class Slider{
       stroke(black); //black
       fill(white); //white
       strokeWeight(0.05*d);
-      ellipse(x+((50*h)/100),y+h/2,d,d);
+      ellipse(x+h/2,y+h/2,d,d);
       strokeWeight(0);
     }else{
       fill(red);
@@ -43,7 +43,7 @@ class Slider{
       stroke(black);
       fill(white);
       strokeWeight(0.05*d);
-      ellipse(w+x-((50*h)/100),y+h/2,d,d);
+      ellipse(w+x-h/2,y+h/2,d,d);
       strokeWeight(0);
     }
   }
