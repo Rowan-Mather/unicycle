@@ -1,26 +1,50 @@
-class Slider extends Button {
-  boolean enable = false;
+class Slider{
+  boolean here = true;
+  int x; int y; 
+  int c = 30; int d;
+  int w; int h;
   
-  Slider(int x, int y, int w, int h, boolean show, boolean enable) {
-    super(x, y, w, h, show);
-    this.enable = enable;
+  Slider (int x, int y, int w, int h){
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.d = (80*h)/100;
   }
-
-  void drawy() {
-    if (show) {
-    fill(60,76,92); //navy
-    rect(50 + x,150 + y,300,75,20,20,20,20); //xpos,ypos,width,height,curve
-    if(!enable) {
-      fill(158,172,180); //blue
-      rect(60 + x,160 + y,280,55,20,20,20,20);
-      fill(229,236,236); //white
-      ellipse(50+x+75/2,150+y+75/2,65,65);
-    } else {
-      fill(236,204,204); //pink
-      rect(60 + x,160 + y,280,55,20,20,20,20);
-      fill(229,236,236); //white
-      ellipse(350+x-75/2,150+y+75/2,65,65);
+  
+  Slider (int x, int y, int w, int h, boolean here){
+    this.here = here;
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.d = (80*h)/100;
+  }
+  
+  boolean clicked() {
+    if ((mouseX >= x) && (mouseX <= x+w) && (mouseY >= y) && (mouseY <= y+h)) {
+      here = !here;
+      return true;
     }
+    return false;
+  }
+  void drawy(){
+    if(here){
+      fill(blue);
+      rect(x,y,w,h,6000);
+      stroke(black); //black
+      fill(white); //white
+      strokeWeight(0.05*d);
+      ellipse(x+((50*h)/100),y+h/2,d,d);
+      strokeWeight(0);
+    }else{
+      fill(red);
+      rect(x,y,w,h,6000);
+      stroke(black);
+      fill(white);
+      strokeWeight(0.05*d);
+      ellipse(w+x-((50*h)/100),y+h/2,d,d);
+      strokeWeight(0);
     }
   }
 }
