@@ -1,9 +1,11 @@
 int i = 0;
+//String[] chores = {"kitchen","kitchen","mopping","bins","hoovering","hoovering"};
 
 class Wheel {
   int x; int y;
   int r; 
   String[] chores;
+  String[] names = {"Ruby", "Saskia", "Rowan", "Ryan", "Poppy", "Luca"};
   
   Wheel(int x, int y, int r, String[] chores) {
     this.x = x;
@@ -12,7 +14,10 @@ class Wheel {
     this.chores = chores;
   }
   
-  void drawy(int j) {
+  void drawy(int i) {
+    fill(203, 185, 189);
+    int r2 = r+(r/5);
+    ellipse(x,y,r2,r2);
     fill(white);
     arc(x, y, r, r, 0, PI/3);
     fill(mauve);
@@ -26,14 +31,33 @@ class Wheel {
     fill(mauve);
     arc(x, y, r, r, 5*PI/3, TWO_PI);
     fill(black);
+    
+    pushMatrix();
+    translate(x,y);
+    rotate(PI/2);
+    popMatrix();
+    
+    textSize(r/11);
+    for (int j = 0; j < names.length; j++) {
+      pushMatrix();
+      translate(x,y);
+      textAlign(CENTER, CENTER);
+      rotate(PI);
+      pushMatrix();
+      rotate(TWO_PI/names.length*j);
+      text(names[j], 0, -(r+(r2/10))/2);
+      popMatrix();
+      popMatrix();
+    }
+    
     pushMatrix();
     translate(x,y);
     rotate((PI/chores.length) + i*(TWO_PI/chores.length));
-    for (int i = 0; i < chores.length; i++) {
+    for (int j = 0; j < chores.length; j++) {
       rotate(TWO_PI/chores.length);
       textSize(r/11);
       textAlign(LEFT,CENTER);
-      text(chores[i], r/10, -10);
+      text(chores[j], r/10, -10);
     }
     popMatrix();
   }
