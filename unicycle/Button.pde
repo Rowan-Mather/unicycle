@@ -1,8 +1,10 @@
 class Button {
+  String id;
   int x; int y;
   int w; int h; 
   String text = "";
-  Button(int x, int y, int w, int h, String text) {
+  Button(String id, int x, int y, int w, int h, String text) {
+    this.id = id;
     this.x = x;
     this.y = y;
     this.w = w;
@@ -18,6 +20,7 @@ class Button {
   } 
   
   void drawy() {
+    rectMode(CENTER);
     stroke(navy);
     fill(light_navy);
     strokeWeight(5);
@@ -25,7 +28,7 @@ class Button {
     
     textSize(h/2);
     fill(black);
-    textAlign(CENTER);
-    text(text, x+w/2, y+h*2/3);
+    textAlign(CENTER, CENTER);
+    text(text, x, y-2);
   }
 }

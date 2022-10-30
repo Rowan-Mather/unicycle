@@ -97,6 +97,7 @@ int getHour() {
 /*
 If cursor over button and clicking
 */
+/*
 void update() {
   if (clickOverButton(startX, startY, startSize, startSize) ) {
     startOver = true;
@@ -107,7 +108,7 @@ void update() {
   } else {
     startOver = endOver = false;
   }
-}
+}*/
 
 /*
 Check if over button and mouse pressed

@@ -1,72 +1,61 @@
 String page = "home";
 ArrayList<Slider> sliders = new ArrayList<Slider>();
+ArrayList<Button> buttons = new ArrayList<Button>();
 boolean update = true;
 
 void setup() {
-  size(800,650);
+  size(1000,600);
   background(black);
   home();
+  update();
 }
 
+int c = 0;
 void draw() {
-  if (update) {
-    clear();
-    update_home();
-    update = false;
+  c++;
+  if(c%700 == 0) topTip();
+}
+
+void update() {
+  clear();
+  menu();
+  topTip();
+  for (Button b : buttons) {
+    b.drawy();
+  }
+  for (Slider s : sliders) {
+    s.drawy();
   }
 }
 
 void mouseClicked() {
-  boolean clickObj = false;
-  /*
-  if (!clickObj) {
+  String clickObj = "";
+  if (clickObj == "") {
     for (Button b : buttons) {
       if (b.clicked()) {
-        clickObj = true;
+        clickObj = b.id;
         break;
       }
     }
   }
-  */
-  if (!clickObj) {
+  if (clickObj == "") {
     for (Slider s : sliders) {
       if (s.clicked()) {
-        clickObj = true;
-        update = true;
+        clickObj = s.id;
         break;
       }
     }
   }
+  action(clickObj);
 }
 
 void home() {
   int in = width/10;
-  sliders.add(new Slider(in,int(in*1.5),in*3,in, true));
-  sliders.add(new Slider(in,int(in*3),in*3,in, true));
-  sliders.add(new Slider(in,int(in*4.5),in*3,in, true));
-  sliders.add(new Slider(in,int(in*6),in*3,in, true));
-  sliders.add(new Slider(in,int(in*7.5),in*3,in, true));
-  sliders.add(new Slider(in,int(in*9),in*3,in, true));
-}
+  sliders.clear();
 
-void update_home() {
-  int in = width/10;
-  textSize(in);
-  textAlign(LEFT);
-  fill(pink);
-  
-  text("HOME", width/2, in);
-  int in2 = width/20;
-  Button timerB = new Button(in2, in2, in*2, in2, "Timer");
-  timerB.drawy();
-  Button a = new Button(in2*6, in2, in*2, in2, "a");
-  a.drawy();
-  Button b = new Button(in2*16, in2, in*2, in2, "b");
-  b.drawy();
-  Button c = new Button(in2*21, in2, in*2, in2, "c");
-  c.drawy();
-  
-  for (Slider s : sliders) {
-    s.drawy();
-  }  
+  sliders.add(new Slider("ru",in,int(in*3),in*3,in, true));
+  sliders.add(new Slider("ry",in,int(in*4.5),in*3,in, true));
+  sliders.add(new Slider("sa",in,int(in*6),in*3,in, true));
+  sliders.add(new Slider("po",in,int(in*7.5),in*3,in, true));
+  sliders.add(new Slider("lu",in,int(in*9),in*3,in, true));
 }
