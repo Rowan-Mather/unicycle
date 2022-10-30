@@ -36,34 +36,34 @@ void setup() {
 }
 
 float time;
-float[] timeArr = new float[6];
+float[] timeArr = new float[7];
 int prevKey;
 
 void keyPressed() {
   switch(key) {
     case '1': 
       activeName = "Ryan";
-      prevKey = 1;
+      prevKey = 0;
       break;
     case '2':
       activeName = "Ruby";
-      prevKey = 2;
+      prevKey = 1;
       break;
     case '3':
       activeName = "Saskia";
-      prevKey = 3;
+      prevKey = 2;
       break;
     case '4':
       activeName = "Rowan";
-      prevKey = 4;
+      prevKey = 3;
       break;
     case '5':
       activeName = "Luca";
-      prevKey = 5;
+      prevKey = 4;
       break;
     case '6':
       activeName = "Poppy";
-      prevKey = 6;
+      prevKey = 5;
       break;
     case 's':
       timeArr[prevKey] = timer.getElapsedTime();
@@ -84,6 +84,12 @@ void draw() {
   for (Member p : members) {
     i++;
     text(p.getName(), 150, 175 + (50 * i));
-    text(time, 225, 175 + (50 * i));
+    
+    int minutes = (int) (timeArr[i-1] / (1000*60)) % 60;
+    println(minutes);
+    int seconds = (int) (timeArr[i-1] / (1000)) % 60;
+    println(seconds);
+    
+    text(minutes + ":" + seconds, 225, 175 + (50 * i));
   }
 }
