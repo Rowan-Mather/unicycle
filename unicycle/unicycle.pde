@@ -232,7 +232,7 @@ void keyPressed() {
       activeName = "Poppy";
       prevKey = 5;
       break;
-    case 's':
+    default:
       timeArr[prevKey] = timer.getElapsedTime();
   }
   timer.start();
