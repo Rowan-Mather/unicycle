@@ -1,7 +1,7 @@
 String[] topTips = {"Washing out dirty recycling makes it recyclable!",
-                    "Leave a hot water in under your duvet to warm up your bed!",
-                    "Batch Cooking for the week will save you time and energy!",
-                    "Use WiFi over Mobile data where possible, as data may be over twice as energy-intensive",
+                    "Leave a hot water bottle under your duvet to warm up your bed!",
+                    "Batch cooking for the week will save you time and energy!",
+                    "Use WiFi over Mobile data where possible, as data may be over twice as energy-intensive!",
                     "Running a FULL dishwasher at low temperature could reduce water usage compared to hand washing!",
                     "Wash your clothes at 30 degrees to save energy and minimise CO2 emissions!",
                     "Make sure to replace old halogen lightbulbs with LEDs!",
@@ -14,13 +14,14 @@ String[] topTips = {"Washing out dirty recycling makes it recyclable!",
                     "Using a microwave could be more energy efficient than an oven!"};
                     
 void topTip() {
-  fill(white);
+  rectMode(CORNER);
+  fill(navy);
   rect(0, 0, wid, hei/8);
-  fill(black);
-  textSize(hei/22);
+  fill(white);
+  textSize(hei/24);
   textAlign(LEFT, CENTER);
   text("Top Tips:", wid/65, hei/19);
-  //textSize(30);
+  textSize(hei/28);
   int i = (c/700)%(topTips.length);
-  text(topTips[i], wid/6.7, hei/19);
+  text(topTips[i], wid/6.7, hei/18);
 }
